@@ -53,19 +53,9 @@ Edita `src/app/portfolio.data.ts` para actualizar proyectos, experiencia, formac
 
 ## Publicación en GitHub
 
-No se ha inicializado un repositorio Git ni se ha creado o publicado un remoto. Cuando decidas publicarlo, revisa primero los archivos y ejecuta:
+El workflow `.github/workflows/deploy-pages.yml` despliega automáticamente cada push a `main` y también permite ejecución manual desde **Actions**. Usa Node.js 24, instala las dependencias con `npm ci`, construye la aplicación y publica `dist/portafolio-personal-matt/browser` en GitHub Pages. El build de producción configura el base href `/portafolio-personal-matt/`; las imágenes, el CV y los estilos se sirven desde ese subdirectorio.
 
-```bash
-git init
-git status --short
-npm ci
-npm test -- --watch=false
-npm run build
-```
-
-Después, crea el repositorio remoto desde GitHub y sigue las instrucciones que GitHub muestre para conectarlo. No añadas credenciales, claves ni otros documentos personales.
-
-El workflow `.github/workflows/deploy-pages.yml` publica automáticamente cada push a `main` y también se puede ejecutar manualmente desde la pestaña **Actions**. El build de producción usa el base href `/portafolio-personal-matt/`; las fotografías y el PDF tienen rutas relativas a ese base href, y la navegación entre secciones conserva sus anchors `#...`. Tras crear el repositorio `MATTUPAPI-art/portafolio-personal-matt` y subir la rama `main`, comprueba en **Settings → Pages** que la fuente de despliegue sea **GitHub Actions**. La URL esperada es `https://MATTUPAPI-art.github.io/portafolio-personal-matt/`.
+La navegación es de una sola página mediante anchors `#...`, por lo que las secciones no requieren rutas adicionales. En GitHub, verifica en **Settings → Pages** que la fuente de despliegue sea **GitHub Actions**. La URL pública esperada es <https://MATTUPAPI-art.github.io/portafolio-personal-matt/>.
 
 ## Estructura
 
